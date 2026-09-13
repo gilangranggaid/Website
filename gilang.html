@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilangrangga.id | Bot Designer, Content Creator & Editor</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        slateDark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 340px;
+            }
+        }
+        .chat-bubble-bot {
+            border-bottom-left-radius: 4px;
+        }
+        .chat-bubble-user {
+            border-bottom-right-radius: 4px;
+        }
+        /* Custom scrollbar for simulator */
+        .custom-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <span class="text-2xl">🤖</span>
+            <a href="#hero" class="font-bold text-lg sm:text-xl text-slateDark tracking-tight">
+                Gilangrangga.id
+                <span class="text-brand-600 font-semibold text-sm block sm:inline">| Automation & Media</span>
+            </a>
+        </div>
+        
+        <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+            <a href="#bot-demo" class="hover:text-brand-600 transition">Bot Simulator</a>
+            <a href="#projects" class="hover:text-brand-600 transition">Featured Projects</a>
+            <a href="#analytics" class="hover:text-brand-600 transition">Skills & Analytics</a>
+            <a href="#experience" class="hover:text-brand-600 transition">Experience & Tools</a>
+            <a href="#estimator" class="hover:text-brand-600 transition">Project Estimator</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+            <a href="#contact" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
+                Let's Connect
+            </a>
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none text-xl">
+                ☰
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+        <a href="#bot-demo" class="block py-2 text-slate-700 hover:text-brand-600">Bot Simulator</a>
+        <a href="#projects" class="block py-2 text-slate-700 hover:text-brand-600">Featured Projects</a>
+        <a href="#analytics" class="block py-2 text-slate-700 hover:text-brand-600">Skills & Analytics</a>
+        <a href="#experience" class="block py-2 text-slate-700 hover:text-brand-600">Experience & Tools</a>
+        <a href="#estimator" class="block py-2 text-slate-700 hover:text-brand-600">Project Estimator</a>
+    </div>
+</header>
+
+<main class="space-y-16 py-8 sm:py-12">
+
+    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10 max-w-3xl space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700 px-3 py-1 rounded-full text-xs text-brand-500 font-semibold tracking-wide uppercase">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                    <span>Available for Freelance & Contract Work</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                    Conversational UX Specialist & Digital Content Creator
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                    I architect intelligent automated workflows for <strong class="text-white">WhatsApp & Telegram</strong>, produce engaging short-form video series, and craft polished media assets for scaling businesses.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#bot-demo" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition flex items-center space-x-2">
+                        <span>Test Live Bot Prototype</span>
+                        <span>⚡</span>
+                    </a>
+                    <a href="#projects" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium px-6 py-3 rounded-lg transition">
+                        Explore Case Studies
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Counters Grid -->
+            <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-slate-800/80">
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-brand-500">80%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Response Time Cut</div>
+                </div>
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">+25%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Sales Conversion Lift</div>
+                </div>
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400">250K+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Social Video Views</div>
+                </div>
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">99.9%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Community Bot Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bot-demo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div>
+                <div class="flex items-center space-x-2 text-brand-600 font-semibold text-sm uppercase tracking-wider mb-1">
+                    <span>💬 Live Interactive Demo</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slateDark">Conversational Flow Simulator</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2">
+                    Experience firsthand how my automated WhatsApp and Telegram flows guide customers through sales, support, and community management. Choose a preset workflow below to test the decision paths.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <!-- Simulator Control Options -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">Select Bot Architecture Preset</label>
+                        <div class="space-y-2">
+                            <button onclick="loadScenario('ecommerce')" id="btn-ecommerce" class="w-full text-left p-3 rounded-lg border border-brand-500 bg-brand-50 text-slate-900 font-medium text-sm flex items-center justify-between transition shadow-sm">
+                                <span class="flex items-center space-x-2">
+                                    <span>🛍️</span>
+                                    <span>WhatsApp E-Commerce & Cart Recovery</span>
+                                </span>
+                                <span class="text-xs bg-brand-600 text-white px-2 py-0.5 rounded">Active</span>
+                            </button>
+                            <button onclick="loadScenario('community')" id="btn-community" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-medium text-sm flex items-center justify-between transition">
+                                <span class="flex items-center space-x-2">
+                                    <span>🛡️</span>
+                                    <span>Telegram Community Moderation & FAQ</span>
+                                </span>
+                                <span class="text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded">Select</span>
+                            </button>
+                            <button onclick="loadScenario('lead')" id="btn-lead" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-medium text-sm flex items-center justify-between transition">
+                                <span class="flex items-center space-x-2">
+                                    <span>🎯</span>
+                                    <span>Lead Qualification & Booking Bot</span>
+                                </span>
+                                <span class="text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded">Select</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Technical Specs Box -->
+                    <div id="scenario-info" class="bg-slate-900 text-slate-300 p-4 rounded-xl text-xs space-y-2">
+                        <div class="font-bold text-white text-sm flex items-center justify-between">
+                            <span id="info-title">WhatsApp E-Commerce Specs</span>
+                            <span class="text-brand-400">ManyChat + Webhooks</span>
+                        </div>
+                        <p id="info-desc" class="text-slate-400 leading-relaxed">
+                            Connects product catalogs, recovers abandoned carts via dynamic timed delays, and performs instant order tracking via Shopify API webhooks.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-1.5" id="info-tags">
+                            <span class="bg-slate-800 px-2 py-0.5 rounded border border-slate-700 text-slate-300">WhatsApp API</span>
+                            <span class="bg-slate-800 px-2 py-0.5 rounded border border-slate-700 text-slate-300">n8n / Make</span>
+                            <span class="bg-slate-800 px-2 py-0.5 rounded border border-slate-700 text-slate-300">Order Lookup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulator Device Wrapper -->
+                <div class="lg:col-span-7 bg-slate-900 rounded-2xl p-3 sm:p-4 shadow-2xl border border-slate-800">
+                    <div class="bg-slate-800 rounded-t-xl px-4 py-3 flex items-center justify-between border-b border-slate-700">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm shadow-md" id="bot-avatar">
+                                🛒
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-semibold flex items-center space-x-1" id="bot-name">
+                                    <span>Shop Assistant Bot</span>
+                                    <span class="text-brand-400 text-xs">✓ Verified</span>
+                                </div>
+                                <div class="text-slate-400 text-xs" id="bot-status">Online | Automated Response Active</div>
+                            </div>
+                        </div>
+                        <button onclick="resetChat()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-md transition">
+                            🔄 Reset Chat
+                        </button>
+                    </div>
+
+                    <!-- Chat Messages Screen -->
+                    <div id="chat-messages" class="bg-slate-950 h-[320px] sm:h-[360px] p-4 overflow-y-auto custom-scroll space-y-3 font-sans text-sm">
+                        <!-- Messages rendered dynamically via JavaScript -->
+                    </div>
+
+                    <!-- Action Buttons / Input Trigger -->
+                    <div id="chat-actions" class="bg-slate-900 p-3 rounded-b-xl border-t border-slate-800 flex flex-wrap gap-2 justify-center">
+                        <!-- Options rendered dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <div class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <div class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-1">💼 Proven Client Impact</div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slateDark">Featured Work & Case Studies</h2>
+                    <p class="text-slate-600 text-sm sm:text-base mt-1">
+                        Filter through automation builds, short-form media projects, and editorial campaign deliverables.
+                    </p>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap gap-2 bg-slate-200/70 p-1.5 rounded-xl text-xs sm:text-sm font-medium">
+                    <button onclick="filterProjects('all')" id="tab-all" class="px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition">All Work</button>
+                    <button onclick="filterProjects('bot')" id="tab-bot" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Bots & Automation</button>
+                    <button onclick="filterProjects('video')" id="tab-video" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Video & Content</button>
+                    <button onclick="filterProjects('edit')" id="tab-edit" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Editorial & Copy</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Cards will be populated dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div>
+                <div class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-1">📊 Quantitative Overview</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slateDark">Skills Radar & Project Performance</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-1">
+                    Visualizing domain proficiency alongside measured performance gains achieved across client deployments.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Skill Competency Radar -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h3 class="text-base font-bold text-slate-800 mb-1 text-center">Multi-Disciplinary Expertise Breakdown</h3>
+                    <p class="text-xs text-slate-500 text-center mb-4">Core proficiencies rated on technical execution & strategic design</p>
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Project Impact Bar Chart -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h3 class="text-base font-bold text-slate-800 mb-1 text-center">Measured Project Outcomes (%)</h3>
+                    <p class="text-xs text-slate-500 text-center mb-4">Percentage improvements in speed, conversions, & audience reach</p>
+                    <div class="chart-container">
+                        <canvas id="impactBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Tool Stack Matrix -->
+            <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <div>
+                    <div class="text-brand-600 font-semibold text-xs uppercase tracking-wider mb-1">🛠️ Stack & Software</div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slateDark">Technical Tool Matrix</h2>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="border-b border-slate-100 pb-3">
+                        <span class="font-bold text-slate-800 block mb-1">Bot Platforms & Webhooks</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-md font-medium border border-emerald-200">WhatsApp API</span>
+                            <span class="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-md font-medium border border-emerald-200">Telegram Bot API</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">ManyChat</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Dialogflow</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">n8n</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Make.com</span>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-slate-100 pb-3">
+                        <span class="font-bold text-slate-800 block mb-1">Video & Audio Editing</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-md font-medium border border-indigo-200">Premiere Pro</span>
+                            <span class="bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-md font-medium border border-indigo-200">DaVinci Resolve</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">CapCut Pro</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Audacity</span>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-slate-100 pb-3">
+                        <span class="font-bold text-slate-800 block mb-1">Graphics & UI Design</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-cyan-50 text-cyan-700 px-2.5 py-1 rounded-md font-medium border border-cyan-200">Photoshop</span>
+                            <span class="bg-cyan-50 text-cyan-700 px-2.5 py-1 rounded-md font-medium border border-cyan-200">Figma</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Canva</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-bold text-slate-800 block mb-1">Content & Productivity</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">ChatGPT Prompting</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Notion</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Grammarly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Timeline & Qualifications -->
+            <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <div>
+                    <div class="text-brand-600 font-semibold text-xs uppercase tracking-wider mb-1">📜 Experience History</div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slateDark">Work & Credentials</h2>
+                </div>
+
+                <div class="space-y-6 relative border-l-2 border-slate-200 pl-4 sm:pl-6 ml-2">
+                    <!-- History Item 1 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-brand-600 border-4 border-white shadow"></div>
+                        <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                            <span class="font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded">2022 – Present</span>
+                            <span>Self-Employed</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">Freelance Bot Designer & Automation Specialist</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                            Consulting with brands to map conversational UI/UX journeys on WhatsApp and Telegram. Building API integrations with Make/n8n and analyzing drop-off telemetry to optimize response triggers.
+                        </p>
+                    </div>
+
+                    <!-- History Item 2 -->
+                    <div class="relative group">
+                        <div class="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white"></div>
+                        <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                            <span class="font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">2021 – Present</span>
+                            <span>Self-Employed</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">Freelance Content Creator & Media Editor</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                            End-to-end post-production video editing for short-form social series (TikTok/Reels/Shorts). Refining sales copywriting, transcript proofreading, and thumbnail graphic creation.
+                        </p>
+                    </div>
+
+                    <!-- Qualifications Accordion / Card -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Education & Certifications</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            <div class="bg-slate-50 p-2.5 rounded border border-slate-200">
+                                <div class="font-bold text-slate-800">Chatbot UX & Conversational Design</div>
+                                <div class="text-slate-500">Certified Specialist</div>
+                            </div>
+                            <div class="bg-slate-50 p-2.5 rounded border border-slate-200">
+                                <div class="font-bold text-slate-800">Advanced Video Editing Masterclass</div>
+                                <div class="text-slate-500">Post-Production Certification</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="estimator" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <div class="bg-slate-900 rounded-2xl p-6 sm:p-10 text-white shadow-xl space-y-8">
+            <div>
+                <div class="text-brand-400 font-semibold text-sm uppercase tracking-wider mb-1">🧮 Instant Scope Calculator</div>
+                <h2 class="text-2xl sm:text-3xl font-bold">Project Scope & Turnaround Estimator</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    Select your required project features to receive an estimated timeline and custom scope baseline.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Options Selector -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-400 uppercase">1. Core Deliverable Category</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <button onclick="setScopeCategory('bot')" id="sc-bot" class="p-3 rounded-lg border border-brand-500 bg-brand-900/30 text-white font-medium text-xs sm:text-sm text-left flex flex-col justify-between">
+                                <span>🤖 Chatbot Automation</span>
+                                <span class="text-brand-400 text-xs mt-2">WhatsApp / Telegram</span>
+                            </button>
+                            <button onclick="setScopeCategory('video')" id="sc-video" class="p-3 rounded-lg border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-600 font-medium text-xs sm:text-sm text-left flex flex-col justify-between">
+                                <span>🎥 Video Series</span>
+                                <span class="text-slate-400 text-xs mt-2">Reels / Shorts / TikTok</span>
+                            </button>
+                            <button onclick="setScopeCategory('edit')" id="sc-edit" class="p-3 rounded-lg border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-600 font-medium text-xs sm:text-sm text-left flex flex-col justify-between">
+                                <span>✂️ Media & Copy Editing</span>
+                                <span class="text-slate-400 text-xs mt-2">SaaS / Ads / Landing</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Checkboxes for Features -->
+                    <div class="space-y-2 pt-2">
+                        <label class="block text-xs font-bold text-slate-400 uppercase">2. Add-on Integration Requirements</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            <label class="flex items-center space-x-2 bg-slate-800 p-2.5 rounded border border-slate-700 cursor-pointer">
+                                <input type="checkbox" id="opt-api" onchange="calculateScope()" class="rounded text-brand-600 focus:ring-0">
+                                <span class="text-slate-200">Webhook / API Database Sync</span>
+                            </label>
+                            <label class="flex items-center space-x-2 bg-slate-800 p-2.5 rounded border border-slate-700 cursor-pointer">
+                                <input type="checkbox" id="opt-script" onchange="calculateScope()" class="rounded text-brand-600 focus:ring-0">
+                                <span class="text-slate-200">Full Scriptwriting & Copywriting</span>
+                            </label>
+                            <label class="flex items-center space-x-2 bg-slate-800 p-2.5 rounded border border-slate-700 cursor-pointer">
+                                <input type="checkbox" id="opt-motion" onchange="calculateScope()" class="rounded text-brand-600 focus:ring-0">
+                                <span class="text-slate-200">Motion Graphics & Subtitles</span>
+                            </label>
+                            <label class="flex items-center space-x-2 bg-slate-800 p-2.5 rounded border border-slate-700 cursor-pointer">
+                                <input type="checkbox" id="opt-analytics" onchange="calculateScope()" class="rounded text-brand-600 focus:ring-0">
+                                <span class="text-slate-200">Analytics Setup & Optimization</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Summary Box -->
+                <div class="lg:col-span-5 bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider">Estimated Project Plan</h3>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-xs text-slate-400">Selected Type:</span>
+                            <span class="text-sm font-bold text-brand-400" id="est-type">Chatbot Automation</span>
+                        </div>
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-xs text-slate-400">Est. Delivery Time:</span>
+                            <span class="text-sm font-bold text-white" id="est-time">3 - 5 Business Days</span>
+                        </div>
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-xs text-slate-400">Included Milestones:</span>
+                            <span class="text-sm font-bold text-white" id="est-milestones">3 Revisions + Setup</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-700">
+                        <a id="scope-mailto" href="mailto:ranggalinggani@gmail.com?subject=Freelance%20Project%20Inquiry" class="block w-full text-center bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-lg transition text-sm">
+                            Submit Scope Inquiry via Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-6">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slateDark">Let's Connect & Collaborate</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-xl mx-auto">
+                    Ready to automate your audience messaging or elevate your video content production? Reach out directly across any platform.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
+                <a href="mailto:ranggalinggani@gmail.com" class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-3 rounded-xl border border-slate-200 flex items-center space-x-2 transition">
+                    <span>📧</span>
+                    <span>ranggalinggani@gmail.com</span>
+                </a>
+                <a href="https://t.me/ganbate_desu" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-3 rounded-xl border border-slate-200 flex items-center space-x-2 transition">
+                    <span>💬</span>
+                    <span>Telegram: @ganbate_desu</span>
+                </a>
+                <a href="https://wa.me/6283895288348" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-3 rounded-xl border border-slate-200 flex items-center space-x-2 transition">
+                    <span>📱</span>
+                    <span>WhatsApp: +62 838-9528-8348</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Project Detail Modal -->
+<div id="projectModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-4 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">×</button>
+        <div id="modal-content">
+            <!-- Modal content dynamically injected -->
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800">
+    <p>© 2026 Gilangrangga.id. Conversational UX & Media Engineering Portfolio. Built with Tailwind CSS & Chart.js.</p>
+</footer>
+
+<script>
+    // --- DATA OBJECTS ---
+    const projectsData = [
+        {
+            id: 'ecom-bot',
+            category: 'bot',
+            title: 'E-Commerce Automation Bot',
+            platform: 'WhatsApp & Telegram',
+            role: 'Lead Bot Designer & Workflow Strategist',
+            summary: 'Streamlined inquiries, product browsing, and abandoned cart recovery via automated triggers.',
+            impact: '80% faster response time | +25% conversion lift',
+            tools: ['WhatsApp API', 'Telegram API', 'ManyChat', 'Webhooks'],
+            fullDetails: `
+                <h3 class="text-xl font-bold text-slate-900 mb-2">E-Commerce Automation Bot Case Study</h3>
+                <p class="text-slate-600 text-sm mb-4">An end-to-end automated retail flow designed for high-volume customer interaction.</p>
+                <div class="space-y-3 text-sm">
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <strong class="text-slate-800 block">Objective:</strong>
+                        <span class="text-slate-600">Reduce manual customer support overhead and automate cart abandonment sequences.</span>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <strong class="text-slate-800 block">Deliverables & Tech Execution:</strong>
+                        <ul class="list-disc list-inside text-slate-600 mt-1 space-y-1">
+                            <li>Designed interactive button-based menu trees for WhatsApp & Telegram.</li>
+                            <li>Configured n8n/Make webhooks to query real-time database order statuses.</li>
+                            <li>Implemented 1-hour and 24-hour abandoned cart recovery reminders.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-200 p-3 rounded-lg text-brand-900">
+                        <strong>Measured Business ROI:</strong> Cut customer response wait time from 15 minutes down to instant (&lt; 3 seconds). Boosted store checkout conversion by 25%.
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'telegram-community',
+            category: 'bot',
+            title: 'Community Management & Moderation Bot',
+            platform: 'Telegram API',
+            role: 'Bot Developer & Designer',
+            summary: 'Automated user onboarding, anti-spam shields, and scheduled daily quiz mechanics for 15,000+ member Web3 community.',
+            impact: '99.9% clean chat environment | +35% active engagement',
+            tools: ['Telegram Bot API', 'Python / Node.js', 'n8n'],
+            fullDetails: `
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Telegram Community Bot Case Study</h3>
+                <p class="text-slate-600 text-sm mb-4">A high-throughput community utility bot serving 15,000 active Telegram group members.</p>
+                <div class="space-y-3 text-sm">
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <strong class="text-slate-800 block">Objective:</strong>
+                        <span class="text-slate-600">Eliminate spam bots and keep group members engaged daily without 24/7 human moderation.</span>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <strong class="text-slate-800 block">Deliverables & Features:</strong>
+                        <ul class="list-disc list-inside text-slate-600 mt-1 space-y-1">
+                            <li>CAPTCHA verification challenge upon join.</li>
+                            <li>Custom interactive FAQ triggers (e.g. /rules, /tokenomics).</li>
+                            <li>Automated scheduled quiz and leaderboard system.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-200 p-3 rounded-lg text-brand-900">
+                        <strong>Measured Business ROI:</strong> Reduced spam messages by 99.9% and increased daily community chat activity by 35%.
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'short-video-series',
+            category: 'video',
+            title: 'Short-Form Tech Tutorial Series',
+            platform: 'TikTok, Instagram Reels, YouTube Shorts',
+            role: 'Content Creator & Video Editor',
+            summary: '10-part educational video series explaining automation workflows for small business owners.',
+            impact: '250,000+ total views | 18% engagement rate',
+            tools: ['Premiere Pro', 'CapCut Pro', 'Photoshop'],
+            fullDetails: `
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Short-Form Video Series Case Study</h3>
+                <p class="text-slate-600 text-sm mb-4">Fast-paced, hook-driven video production engineered for modern social algorithms.</p>
+                <div class="space-y-3 text-sm">
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <strong class="text-slate-800 block">Key Deliverables:</strong>
+                        <ul class="list-disc list-inside text-slate-600 mt-1 space-y-1">
+                            <li>Scriptwriting optimized for 3-second hook retention.</li>
+                            <li>High-energy pacing, custom kinetic typography overlay, and sound design.</li>
+                            <li>Designed eye-catching vertical thumbnail templates.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-200 p-3 rounded-lg text-brand-900">
+                        <strong>Measured Business ROI:</strong> Generated over 250,000 organic views within 30 days of campaign launch.
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'brand-video-edit',
+            category: 'edit',
+            title: 'SaaS Promo Video & Copy Editing',
+            platform: 'Web & Paid Ad Channels',
+            role: 'Video Editor & Copy Editor',
+            summary: 'Edited promotional ad cutdowns and refined sales copy for a SaaS product release.',
+            impact: '+40% landing page CTR',
+            tools: ['DaVinci Resolve', 'Grammarly', 'Notion'],
+            fullDetails: `
+                <h3 class="text-xl font-bold text-slate-900 mb-2">SaaS Brand Video & Copy Editing Case Study</h3>
+                <p class="text-slate-600 text-sm mb-4">Post-production polish and sales messaging alignment for a digital product launch.</p>
+                <div class="space-y-3 text-sm">
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <strong class="text-slate-800 block">Key Deliverables:</strong>
+                        <ul class="list-disc list-inside text-slate-600 mt-1 space-y-1">
+                            <li>Cut and color-graded raw video footage into 15s, 30s, and 60s promotional ads.</li>
+                            <li>Applied crisp sound cleaning and graphic callouts for feature highlights.</li>
+                            <li>Proofread and rewritten hero landing page text and ad copy.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-200 p-3 rounded-lg text-brand-900">
+                        <strong>Measured Business ROI:</strong> Direct increase of 40% in landing page click-through rates (CTR) on paid campaigns.
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    // --- BOT SIMULATOR SCENARIOS ---
+    const botScenarios = {
+        ecommerce: {
+            title: "WhatsApp E-Commerce Specs",
+            desc: "Connects product catalogs, recovers abandoned carts via dynamic timed delays, and performs instant order tracking via Shopify API webhooks.",
+            tags: ["WhatsApp API", "n8n / Make", "Order Lookup"],
+            botName: "Shop Assistant Bot",
+            avatar: "🛒",
+            initialMsgs: [
+                { sender: 'bot', text: '👋 Hi there! Welcome to Gilangrangga.id. How can I help you today?' }
+            ],
+            options: [
+                { label: '📦 Track My Order', nextStep: 'track_order' },
+                { label: '🛍️ Browse Catalog', nextStep: 'browse_catalog' },
+                { label: '🛒 Recover Cart', nextStep: 'cart_recover' }
+            ],
+            steps: {
+                track_order: {
+                    userMsg: "📦 Track My Order",
+                    botMsgs: [
+                        "Please reply with your 6-digit Order ID (e.g. #98421)."
+                    ],
+                    nextOptions: [
+                        { label: 'Enter #98421', nextStep: 'order_status_result' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                order_status_result: {
+                    userMsg: "Order #98421",
+                    botMsgs: [
+                        "🔍 Fetching real-time status...",
+                        "✅ Order #98421 has been shipped via FedEx! Tracking code: FX-883912. Estimated delivery: Tomorrow by 4 PM."
+                    ],
+                    nextOptions: [
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                browse_catalog: {
+                    userMsg: "🛍️ Browse Catalog",
+                    botMsgs: [
+                        "What category are you interested in?",
+                        "1️⃣ Smart Gadgets\n2️⃣ Digital Content Kits\n3️⃣ Creator Accessories"
+                    ],
+                    nextOptions: [
+                        { label: 'Select Smart Gadgets', nextStep: 'gadgets_list' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                gadgets_list: {
+                    userMsg: "Smart Gadgets",
+                    botMsgs: [
+                        "🌟 Top Seller: Wireless Creator Mic ($49.99). Would you like to check out with WhatsApp Pay or view product specs?"
+                    ],
+                    nextOptions: [
+                        { label: '💳 Quick Checkout', nextStep: 'checkout' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                cart_recover: {
+                    userMsg: "🛒 Recover Cart",
+                    botMsgs: [
+                        "⚠️ Notice: You left 'Pro Video Editing Preset Bundle' in your cart 45 mins ago!",
+                        "Use code SAVE10 now to take 10% off your checkout."
+                    ],
+                    nextOptions: [
+                        { label: '🔥 Apply 10% & Checkout', nextStep: 'checkout' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                checkout: {
+                    userMsg: "Proceed to Checkout",
+                    botMsgs: [
+                        "🎉 Awesome! Click here to complete your instant order: [Secure Payment Link]. Thank you for shopping with us!"
+                    ],
+                    nextOptions: [
+                        { label: '🔄 Start Over', nextStep: 'reset' }
+                    ]
+                }
+            }
+        },
+        community: {
+            title: "Telegram Community Bot Specs",
+            desc: "Handles anti-spam onboarding challenges, custom command lookups, and scheduled community engagement quizzes.",
+            tags: ["Telegram Bot API", "Python", "CAPTCHA Verification"],
+            botName: "Community Guardian Bot",
+            avatar: "🛡️",
+            initialMsgs: [
+                { sender: 'bot', text: '🛡️ Hello! Welcome to the Tech Innovators Telegram Group. To verify you are human, please select the matching icon below.' }
+            ],
+            options: [
+                { label: '🤖 Verification CAPTCHA', nextStep: 'captcha_verify' },
+                { label: '❓ Group Commands (/rules)', nextStep: 'rules_cmd' },
+                { label: '🏆 Daily Quiz Command', nextStep: 'quiz_start' }
+            ],
+            steps: {
+                captcha_verify: {
+                    userMsg: "Click Verified Badge ✅",
+                    botMsgs: [
+                        "✅ Verification passed! Welcome to the community. Please observe group guidelines."
+                    ],
+                    nextOptions: [
+                        { label: '❓ View Rules (/rules)', nextStep: 'rules_cmd' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                rules_cmd: {
+                    userMsg: "/rules",
+                    botMsgs: [
+                        "📜 Community Rules:\n1. No self-promotion without admin approval.\n2. Respect all members.\n3. Keep discussion relevant to automation and media."
+                    ],
+                    nextOptions: [
+                        { label: '🏆 Try Daily Quiz', nextStep: 'quiz_start' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                quiz_start: {
+                    userMsg: "/quiz",
+                    botMsgs: [
+                        "🧠 Daily Tech Question:\nWhich tool is best for connecting webhook triggers between APIs without writing code?",
+                        "A) n8n / Make\nB) Plain Text Editor"
+                    ],
+                    nextOptions: [
+                        { label: 'Answer: A) n8n / Make', nextStep: 'quiz_correct' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                quiz_correct: {
+                    userMsg: "Option A",
+                    botMsgs: [
+                        "🎉 Correct! You earned +10 Community Points on the leaderboard!"
+                    ],
+                    nextOptions: [
+                        { label: '🔄 Main Menu', nextStep: 'reset' }
+                    ]
+                }
+            }
+        },
+        lead: {
+            title: "Lead Qualification Bot Specs",
+            desc: "Screens prospective freelance clients, gathers scope requirements, and automatically books consultation calls.",
+            tags: ["Lead Scoring", "Calendly Integration", "Dialogflow"],
+            botName: "Client Qualifier Bot",
+            avatar: "🎯",
+            initialMsgs: [
+                { sender: 'bot', text: '👋 Hi! Looking to hire for a project? I can quickly gather your requirements and schedule a direct consultation.' }
+            ],
+            options: [
+                { label: '🤖 Need a Chatbot Build', nextStep: 'scope_bot' },
+                { label: '🎥 Need Video Editing', nextStep: 'scope_video' }
+            ],
+            steps: {
+                scope_bot: {
+                    userMsg: "I need a Chatbot Build",
+                    botMsgs: [
+                        "Great! Which messaging channel will your bot run on?",
+                        "1️⃣ WhatsApp\n2️⃣ Telegram\n3️⃣ Both"
+                    ],
+                    nextOptions: [
+                        { label: 'Both WhatsApp & Telegram', nextStep: 'book_call' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                scope_video: {
+                    userMsg: "I need Video Editing Services",
+                    botMsgs: [
+                        "Got it! What is your estimated monthly video output?",
+                        "1️⃣ 1 - 5 Short Reels/TikToks\n2️⃣ 10+ Short Reels/TikToks"
+                    ],
+                    nextOptions: [
+                        { label: '10+ Videos / Month', nextStep: 'book_call' },
+                        { label: '🔙 Main Menu', nextStep: 'reset' }
+                    ]
+                },
+                book_call: {
+                    userMsg: "Proceed to Booking",
+                    botMsgs: [
+                        "🎯 Perfect fit! Pick a convenient slot on my calendar to finalize project timeline: [Calendly Booking Link]"
+                    ],
+                    nextOptions: [
+                        { label: '🔄 Start Over', nextStep: 'reset' }
+                    ]
+                }
+            }
+        }
+    };
+
+    let currentScenarioKey = 'ecommerce';
+
+    function renderProjects(filter = 'all') {
+        const container = document.getElementById('projects-grid');
+        if (!container) return;
+        container.innerHTML = '';
+
+        const filtered = filter === 'all' 
+            ? projectsData 
+            : projectsData.filter(p => p.category === filter);
+
+        filtered.forEach(p => {
+            const card = document.createElement('div');
+            card.className = "bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition shadow-sm flex flex-col justify-between space-y-4 group";
+            
+            card.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 text-slate-700 uppercase tracking-wide">${p.platform}</span>
+                        <span class="text-xs text-brand-600 font-bold bg-brand-50 px-2 py-0.5 rounded">${p.role}</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition">${p.title}</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">${p.summary}</p>
+                    
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-xs text-slate-700">
+                        <strong>Result/Impact:</strong> ${p.impact}
+                    </div>
+                </div>
+
+                <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <div class="flex flex-wrap gap-1">
+                        ${p.tools.map(t => `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">${t}</span>`).join('')}
+                    </div>
+                    <button onclick="openModal('${p.id}')" class="text-xs font-bold text-brand-600 hover:text-brand-700 flex items-center space-x-1">
+                        <span>View Case Study</span>
+                        <span>→</span>
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterProjects(cat) {
+        ['all', 'bot', 'video', 'edit'].forEach(c => {
+            const btn = document.getElementById(`tab-${c}`);
+            if (btn) {
+                if (c === cat) {
+                    btn.className = "px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition font-bold";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition font-medium";
+                }
+            }
+        });
+        renderProjects(cat);
+    }
+
+    function openModal(id) {
+        const project = projectsData.find(p => p.id === id);
+        if (!project) return;
+        document.getElementById('modal-content').innerHTML = project.fullDetails;
+        document.getElementById('projectModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('projectModal').classList.add('hidden');
+    }
+
+    function loadScenario(key) {
+        currentScenarioKey = key;
+        const sc = botScenarios[key];
+        if (!sc) return;
+
+        // Update specs box
+        const infoTitle = document.getElementById('info-title');
+        const infoDesc = document.getElementById('info-desc');
+        const infoTags = document.getElementById('info-tags');
+        if (infoTitle) infoTitle.innerText = sc.title;
+        if (infoDesc) infoDesc.innerText = sc.desc;
+        if (infoTags) infoTags.innerHTML = sc.tags.map(t => `<span class="bg-slate-800 px-2 py-0.5 rounded border border-slate-700 text-slate-300">${t}</span>`).join('');
+        
+        // Update bot header
+        const botName = document.getElementById('bot-name');
+        const botAvatar = document.getElementById('bot-avatar');
+        if (botName) botName.innerHTML = `<span>${sc.botName}</span><span class="text-brand-400 text-xs">✓ Verified</span>`;
+        if (botAvatar) botAvatar.innerText = sc.avatar;
+
+        // Highlight button
+        ['ecommerce', 'community', 'lead'].forEach(k => {
+            const b = document.getElementById(`btn-${k}`);
+            if (b) {
+                if (k === key) {
+                    b.className = "w-full text-left p-3 rounded-lg border border-brand-500 bg-brand-50 text-slate-900 font-medium text-sm flex items-center justify-between transition shadow-sm";
+                } else {
+                    b.className = "w-full text-left p-3 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-medium text-sm flex items-center justify-between transition";
+                }
+            }
+        });
+
+        resetChat();
+    }
+
+    function resetChat() {
+        const sc = botScenarios[currentScenarioKey];
+        if (!sc) return;
+        const msgBox = document.getElementById('chat-messages');
+        if (!msgBox) return;
+        msgBox.innerHTML = '';
+
+        sc.initialMsgs.forEach(m => {
+            appendChatMessage(m.sender, m.text);
+        });
+
+        renderActionButtons(sc.options);
+    }
+
+    function appendChatMessage(sender, text) {
+        const msgBox = document.getElementById('chat-messages');
+        if (!msgBox) return;
+        const wrapper = document.createElement('div');
+        
+        if (sender === 'bot') {
+            wrapper.className = "flex items-start space-x-2";
+            wrapper.innerHTML = `
+                <div class="bg-slate-800 text-slate-100 p-3 rounded-2xl chat-bubble-bot max-w-[85%] text-xs sm:text-sm leading-relaxed border border-slate-700">
+                    ${text.replace(/\n/g, '<br>')}
+                </div>
+            `;
+        } else {
+            wrapper.className = "flex items-end justify-end space-x-2";
+            wrapper.innerHTML = `
+                <div class="bg-brand-600 text-white p-3 rounded-2xl chat-bubble-user max-w-[85%] text-xs sm:text-sm leading-relaxed shadow-sm">
+                    ${text.replace(/\n/g, '<br>')}
+                </div>
+            `;
+        }
+
+        msgBox.appendChild(wrapper);
+        msgBox.scrollTop = msgBox.scrollHeight;
+    }
+
+    function renderActionButtons(options) {
+        const actionBox = document.getElementById('chat-actions');
+        if (!actionBox) return;
+        actionBox.innerHTML = '';
+
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = "bg-slate-800 hover:bg-brand-600 hover:text-white border border-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-lg transition";
+            btn.innerText = opt.label;
+            btn.onclick = () => handleUserChoice(opt.label, opt.nextStep);
+            actionBox.appendChild(btn);
+        });
+    }
+
+    function handleUserChoice(label, nextStep) {
+        if (nextStep === 'reset') {
+            resetChat();
+            return;
+        }
+
+        appendChatMessage('user', label);
+
+        const sc = botScenarios[currentScenarioKey];
+        const stepData = sc.steps[nextStep];
+
+        if (stepData) {
+            setTimeout(() => {
+                stepData.botMsgs.forEach(m => {
+                    appendChatMessage('bot', m);
+                });
+                renderActionButtons(stepData.nextOptions);
+            }, 400);
+        }
+    }
+
+    let selectedScopeCat = 'bot';
+
+    function setScopeCategory(cat) {
+        selectedScopeCat = cat;
+        ['bot', 'video', 'edit'].forEach(c => {
+            const el = document.getElementById(`sc-${c}`);
+            if (el) {
+                if (c === cat) {
+                    el.className = "p-3 rounded-lg border border-brand-500 bg-brand-900/30 text-white font-medium text-xs sm:text-sm text-left flex flex-col justify-between";
+                } else {
+                    el.className = "p-3 rounded-lg border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-600 font-medium text-xs sm:text-sm text-left flex flex-col justify-between";
+                }
+            }
+        });
+        calculateScope();
+    }
+
+    function calculateScope() {
+        let days = 3;
+        let typeName = "Chatbot Automation";
+        let milestones = "3 Flow Revisions + API Setup";
+
+        if (selectedScopeCat === 'video') {
+            days = 4;
+            typeName = "Short-Form Video Series";
+            milestones = "Scripting + Editing + 2 Cuts";
+        } else if (selectedScopeCat === 'edit') {
+            days = 2;
+            typeName = "Media & Copy Editing";
+            milestones = "Proofreading + Graphic Polish";
+        }
+
+        const optApi = document.getElementById('opt-api');
+        const optScript = document.getElementById('opt-script');
+        const optMotion = document.getElementById('opt-motion');
+        const optAnalytics = document.getElementById('opt-analytics');
+
+        if (optApi && optApi.checked) days += 2;
+        if (optScript && optScript.checked) days += 1;
+        if (optMotion && optMotion.checked) days += 2;
+        if (optAnalytics && optAnalytics.checked) days += 1;
+
+        const estType = document.getElementById('est-type');
+        const estTime = document.getElementById('est-time');
+        const estMilestones = document.getElementById('est-milestones');
+        const scopeMailto = document.getElementById('scope-mailto');
+
+        if (estType) estType.innerText = typeName;
+        if (estTime) estTime.innerText = `${days} - ${days + 2} Business Days`;
+        if (estMilestones) estMilestones.innerText = milestones;
+
+        const mailto = `mailto:ranggalinggani@gmail.com?subject=Inquiry:%20${encodeURIComponent(typeName)}&body=Hi%20Gilang,%20I%20am%20interested%20in%20a%20${encodeURIComponent(typeName)}%20project.%20Estimated%20timeline:%20${days}%20days.`;
+        if (scopeMailto) scopeMailto.href = mailto;
+    }
+
+    function initCharts() {
+        const radarCanvas = document.getElementById('skillsRadarChart');
+        if (radarCanvas) {
+            const ctxRadar = radarCanvas.getContext('2d');
+            new Chart(ctxRadar, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Bot Flow UX',
+                        'WhatsApp/Telegram API',
+                        'Short-Form Video',
+                        'Post-Production Editing',
+                        'Copywriting & Proofreading',
+                        'Analytics & Optimization'
+                    ],
+                    datasets: [{
+                        label: 'Skill Proficiency',
+                        data: [95, 90, 88, 92, 85, 87],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: '#10b981',
+                        pointBackgroundColor: '#047857',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#047857'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e2e8f0' },
+                            grid: { color: '#cbd5e1' },
+                            pointLabels: {
+                                font: { size: 10, weight: 'bold' },
+                                color: '#334155'
+                            },
+                            suggestedMin: 50,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        const barCanvas = document.getElementById('impactBarChart');
+        if (barCanvas) {
+            const ctxBar = barCanvas.getContext('2d');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        ['Response Speed', 'Improvement'],
+                        ['Sales Conversion', 'Lift'],
+                        ['Community Chat', 'Engagement'],
+                        ['Landing Page', 'CTR Increase']
+                    ],
+                    datasets: [{
+                        label: '% Improvement',
+                        data: [80, 25, 35, 40],
+                        backgroundColor: [
+                            '#10b981',
+                            '#059669',
+                            '#0891b2',
+                            '#6366f1'
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: '#f1f5f9' },
+                            ticks: {
+                                callback: function(val) { return val + '%'; }
+                            }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Measured Lift: +${context.parsed.x}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        renderProjects('all');
+        loadScenario('ecommerce');
+        calculateScope();
+        initCharts();
+
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                const menu = document.getElementById('mobileMenu');
+                if (menu) menu.classList.toggle('hidden');
+            });
+        }
+    });
+</script>
+</body>
+</html>
